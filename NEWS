@@ -1,0 +1,4 @@
+# rcrypt 0.1.0
+
+- Initial release 2015-09-05
+- Provides functions `encrypt()` and `decrypt()`
