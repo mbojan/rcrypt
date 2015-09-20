@@ -6,7 +6,7 @@
 \usage{
 encrypt(input, output = NULL, passphrase = NULL, compress = "ZLIB",
   cipher = "AES256", armor = FALSE, mdc = TRUE, s2k.mode = 3,
-  s2k.digest = "SHA512", s2k.count = 65011712)
+  s2k.digest = "SHA512", s2k.count = 65011712, verbosity = 1)
 }
 \arguments{
 \item{input}{A character string of the file name you wish to encrypt.}
@@ -23,11 +23,13 @@ encrypt(input, output = NULL, passphrase = NULL, compress = "ZLIB",
 
 \item{mdc}{\code{TRUE} or \code{FALSE}: flag to force the use of modification detection code. It is always used with newer encryption algorithms and recommended to always keep \code{TRUE}. The default value is \code{TRUE}.}
 
-\item{s2k.mode}{An integer 0, 1, or 3. Sets how passphrases are mangled. A value of 0 just uses a plain passphrase (never use). A value of 1 will add a salt to the passphrase. A value of 3 will salt and iterate the passphrase. It is highly recommended to always use 3. The default value is 3.}
+\item{s2k.mode}{An integer \code{0}, \code{1}, or \code{3}. Sets how passphrases are mangled. A value of \code{0} just uses a plain passphrase (never use). A value of \code{1} will add a salt to the passphrase. A value of \code{3} will salt and iterate the passphrase. It is highly recommended to always use \code{3}. The default value is \code{3}.}
 
 \item{s2k.digest}{A character string of the digest algorithm used to mangle passphrases. Possible values are \code{"SHA512"}, \code{"SHA384"}, \code{"SHA256"}, etc. The default value is \code{"SHA512"}.}
 
-\item{s2k.count}{An integer between 1024 and 65011712. Specifies how many times the passphrase mangling is repeated. The default value is 65011712.}
+\item{s2k.count}{An integer between \code{1024} and \code{65011712}. Specifies how many times the passphrase mangling is repeated. The default value is \code{65011712}.}
+
+\item{verbosity}{An integer \code{0}, \code{1}, \code{2}, or \code{3}. Control GPG's terminal message information in increasing level of detail. A value of \code{0} passes the \code{'--quiet'} flag for a minimum amount of information. A value of \code{1} does not pass any flags. A value of \code{2} passes the \code{'--verbose'} flag. A value of \code{3} passes the \code{'--verbose --verbose'} flag for the most information. The default value is \code{1}.}
 }
 \value{
 An encrypted file.

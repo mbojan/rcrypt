@@ -55,7 +55,7 @@ test_that("If output is not specified, file name is not already in use", {
 test_that("Decryption with passphrase passthrough works", {
   # Create scary binary
   encrypt("file2.txt", passphrase = "pass")
-  decrypt("file2.txt.gpg", output = "file2-decrypt.txt", passphrase = "pass")
+  decrypt("file2.txt.gpg", output = "file2-decrypt.txt", passphrase = "pass", verbosity = 0)
   # Delete scary binary (To pass R CMD check)
   expect_true(file.remove("file2.txt.gpg"))
 
@@ -65,7 +65,7 @@ test_that("Decryption with passphrase passthrough works", {
 })
 
 test_that("Decryption with passphrase passthrough and armor works", {
-  decrypt("file2.txt.asc", output = "file2-decrypt.txt", passphrase = "pass")
+  decrypt("file2.txt.asc", output = "file2-decrypt.txt", passphrase = "pass", verbosity = 0)
   lines <- readLines("file2-decrypt.txt")
   expect_equal(lines, "file2")
   expect_true(file.remove("file2-decrypt.txt"))

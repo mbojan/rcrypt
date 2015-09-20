@@ -4,7 +4,7 @@
 \alias{decrypt}
 \title{Decrypt a File Using GPG}
 \usage{
-decrypt(input, output = NULL, passphrase = NULL)
+decrypt(input, output = NULL, passphrase = NULL, verbosity = 1)
 }
 \arguments{
 \item{input}{A character string of the file name you wish to decrypt.}
@@ -12,6 +12,8 @@ decrypt(input, output = NULL, passphrase = NULL)
 \item{output}{A character string of the file name that will be created. The default is to create a file with the same name (stripped of the .gpg or .asc file extension) in the same folder.}
 
 \item{passphrase}{A character string of the passphrase used to decrypt the encrypted file. WARNING: use this to bypass the more secure option of GPG's passphrase popup box. WARNING: the passphrase may be saved in the script as cleartext, saved in the terminal history in cleartext, and/or available in the list of processes in cleartext. The default value is \code{NULL} (Insert the passphrase using GPG's secure pop-up box).}
+
+\item{verbosity}{An integer \code{0}, \code{1}, \code{2}, or \code{3}. Control GPG's terminal message information in increasing level of detail. A value of \code{0} passes the \code{'--quiet'} flag for a minimum amount of information. A value of \code{1} does not pass any flags. A value of \code{2} passes the \code{'--verbose'} flag. A value of \code{3} passes the \code{'--verbose --verbose'} flag for the most information. The default value is \code{1}.}
 }
 \value{
 A decrypted file.
