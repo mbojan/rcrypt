@@ -63,7 +63,7 @@ decrypt <- function(input, output = NULL, passphrase = NULL, verbosity = 1) {
   if (is.null(passphrase)) {
     # Decrypt with GUI passphrase.
     command <- "gpg"
-    system2.args <- c("--output", output, "--decrypt", verbosity, input)
+    system2.args <- c("--output", output, "--use-agent --decrypt", verbosity, input)
   } else{
     # Decrypt with terminal passphrase insertion.
     # Can't have a space after passphrase when using shell()
